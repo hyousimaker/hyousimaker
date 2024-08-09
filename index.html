@@ -539,7 +539,7 @@ p.fw-900{
         </p>
         <script>
             document.getElementById("download").onclick = (event) => {
-                let canvas = document.getElementById("preview_canvas");
+                let canvas = document.getElementById("board");
                 let link = document.createElement("a");
                 link.href = canvas.toDataURL("image/png");
                 link.download = "essence.png";
