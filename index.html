@@ -7,8 +7,7 @@
     <title>○○のエッセンス</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <style type="text/css">
 
     body {
@@ -242,6 +241,7 @@ p.fw-900{
             <canvas id="board" style="width: 90%;"></canvas>
 
             <script>
+
             var background_color_input = document.getElementById("background_color_input");
             var title1 = document.getElementById("title_1");
             var title1_size_input = document.getElementById("title1_size_input");
@@ -259,6 +259,42 @@ p.fw-900{
             var subtext_size_input = document.getElementById("subtext_size_input");
             var english = document.getElementById("english");
             var english_size_input = document.getElementById("english_size_input");
+            let MPLUS1Light = new FontFace(
+                'M PLUS 1 Light',
+                'url(./res/MPLUS1-Light.woff2)'
+            );
+            MPLUS1Light.load().then((font) => {
+                document.fonts.add(font);
+            });
+            let MPLUS1Regular = new FontFace(
+                'M PLUS 1',
+                'url(./res/MPLUS1-Regular.woff2)'
+            );
+            MPLUS1Regular.load().then((font) => {
+                document.fonts.add(font);
+            });
+            let MPLUS1SemiBold = new FontFace(
+                'M PLUS 1 SemiBold',
+                'url(./res/MPLUS1-SemiBold.woff2)'
+            );
+            MPLUS1SemiBold.load().then((font) => {
+                document.fonts.add(font);
+            });
+            let MPLUS1ExtraBold = new FontFace(
+                'M PLUS 1 ExtraBold',
+                'url(./res/MPLUS1-ExtraBold.woff2)'
+            );
+            MPLUS1ExtraBold.load().then((font) => {
+                document.fonts.add(font);
+            });
+            let ZenOldMincho = new FontFace(
+                'Zen Old Mincho',
+                'url(./res/ZenOldMincho-Regular.woff2)'
+            );
+            ZenOldMincho.load().then((font) => {
+                document.fonts.add(font);
+            });
+            
             function drawCanvas() {
                 const board = document.querySelector("#board");
                 const ctx = board.getContext("2d");
@@ -277,6 +313,9 @@ p.fw-900{
                     ctx.fillStyle = background_color_input.value;
                     ctx.fillRect(0, 0, board.width, board.height);
                     ctx.drawImage(chara, 0, 0, canvasWidth, canvasHeight);
+                    
+                    //フォントが読み込まれるまで待つ
+                    
                     var title1_size = board.width * 0.14 *(title1_size_input.value);
                     var title1_x = board.width * 0.32 + parseInt(title1_position_x_input.value);
                     var title1_y = board.height * 0.24 + parseInt(title1_position_y_input.value);
