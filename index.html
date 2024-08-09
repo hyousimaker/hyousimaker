@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta property="og:title" content="○○のエッセンス"/>
+    <meta property="og:description" content="キミだけのエッセンスをつくろう！！"/>
+    <meta name="robots" content="noindex,nofollow" />
+    <title>○○のエッセンス</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+    <style type="text/css">
+
+    body {
+        background-color: #e4e4e4;
+        color: #000;
+        font-family: 'M PLUS 1', sans-serif;
+    }
+
+@media (max-width: 767px) {
+    h1, h2, h3, h4, h5, h6, p, a, li, dt, dd, th, td, input, textarea, button,details,summary {
+        margin: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    h1, h2, h3, h4, h5, h6, p, a, li, dt, dd, th, td, input, textarea, button,details,summary{
+        margin: 30px;
+    }
+}
+
+button {
+    background-color: #000;
+    color: #e4e4e4;
+    border: 3px solid #433a37;
+    border-radius: 50px;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    font-weight: 600;
+}
+button:hover {
+    border: 3px solid #6f5748;
+    background-color: #c7161e;
+    color: #fff;
+}
+
+
+/*カラーピッカーのスタイル*/
+input[type="color"] {
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #e4e4e4;
+}
+
+p.fw-100{
+    font-weight: 100;
+}
+p.fw-200{
+    font-weight: 200;
+}
+p.fw-300{
+    font-weight: 300;
+}
+p.fw-400{
+    font-weight: 400;
+}
+p.fw-500{
+    font-weight: 500;
+}
+p.fw-600{
+    font-weight: 600;
+}
+p.fw-700{
+    font-weight: 700;
+}
+p.fw-800{
+    font-weight: 800;
+}
+p.fw-900{
+    font-weight: 900;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <center>
+            <h1><p class="fw-200">○○のエッセンス</h1>
+        </center>
+    </header>
+    <div id="description">
+        <p><center>キミだけのエッセンスをつくろう！！</center></p>
+    </div>
+        </center>
+    </div>
+    <!--設定入力部分-->
+    <div id="settings">
+        <div class = button>
+        <button onclick="toggleSettings()">設定の表示を切り替え</button>
+        </div>
+        <div id="settingsContent" style="display: none;">
+            <!--背景色-->
+            <p>背景色
+                <input type="color" id="background_color_input" value="#c7161e">
+            </p>
+            <!--テキスト内容-->
+            <p>タイトル（一行目）<br>
+            <textarea id="title_1" style="width: 70%" rows="1" placeholder="○○の">○○の</textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="title1_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="title1_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="title1_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>
+            </p>
+            <p>タイトル（二行目）<br>
+                <textarea id="title_2" style="width: 70%" rows="1" placeholder="エッセンス"></textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="title2_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="title2_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="title2_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>
+            </p>
+            <p>〇訂版<br>
+                <textarea id="version" style="width: 70%" rows="1" placeholder="完全版">完全版</textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="version_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="version_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="version_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>  
+            </p>    
+            <p>ジャンル<br>
+                <textarea id="genre" style="width: 70%" rows="1" placeholder="力学・波動">力学・波動</textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="genre_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="genre_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="genre_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>
+            </p>
+            <p>肩書き<br>
+                <textarea id="subtitle" style="width: 70%" rows="1" placeholder="画像生成">画像生成</textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="subtitle_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="subtitle_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="subtitle_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>
+            </p>
+            <p>著者<br>
+                <textarea id="author" style="width: 70%" rows="1" placeholder="○○　××">○○　××</textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="author_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="author_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="author_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>
+            </p>
+            <p>[]内<br>
+                <textarea id="subtext" style="width: 70%" rows="1" placeholder="作">作</textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="subtext_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="subtext_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="subtext_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>
+            </p>
+            <p>＆の下の英字<br>
+                <textarea id="english" style="width: 70%" rows="1" placeholder="Essence">Essence</textarea>
+                <details>
+                    <summary>詳しい設定</summary>
+                    <p>サイズの調整
+                        <input type="range" id="english_size_input" min="0" max="2" step="0.01" value="1">
+                    </p>
+                    <p>位置の調整(x)
+                        <input type="range" id="english_position_x_input" min="-50" max="50" value="0">
+                    </p>
+                    <p>位置の調整(y)
+                        <input type="range" id="english_position_y_input" min="-50" max="50" value="0">
+                    </p>
+                </details>
+            </div>
+
+    <script>
+        function toggleSettings() {
+            var settingsContent = document.getElementById("settingsContent");
+            if (settingsContent.style.display === "none") {
+                settingsContent.style.display = "block";
+            } else {
+                settingsContent.style.display = "none";
+            }
+        }
+    </script>
+    <div id="preview"></div>
+        <center>
+            <canvas id="board" style="width: 90%;"></canvas>
+
+            <script>
+            var background_color_input = document.getElementById("background_color_input");
+            var title1 = document.getElementById("title_1");
+            var title1_size_input = document.getElementById("title1_size_input");
+            var title_2 = document.getElementById("title_2");
+            var title2_size_input = document.getElementById("title2_size_input");
+            var version = document.getElementById("version");
+            var version_size_input = document.getElementById("version_size_input");
+            var genre = document.getElementById("genre");
+            var genre_size_input = document.getElementById("genre_size_input");
+            var subtitle = document.getElementById("subtitle");
+            var subtitle_size_input = document.getElementById("subtitle_size_input");
+            var author = document.getElementById("author");
+            var author_size_input = document.getElementById("author_size_input");
+            var subtext = document.getElementById("subtext");
+            var subtext_size_input = document.getElementById("subtext_size_input");
+            var english = document.getElementById("english");
+            var english_size_input = document.getElementById("english_size_input");
+            function drawCanvas() {
+                const board = document.querySelector("#board");
+                const ctx = board.getContext("2d");
+                const chara = new Image();
+                if (title_2.value === "" || title_2.value === "エッセンス") {
+                    chara.src = "./res/base_2.PNG";
+                } else {
+                    chara.src = "./res/base.PNG";
+                }
+                chara.onload = () => {
+                    const aspectRatio = chara.width / chara.height;
+                    const canvasWidth = board.offsetWidth;
+                    const canvasHeight = canvasWidth / aspectRatio;
+                    board.width = canvasWidth;
+                    board.height = canvasHeight;
+                    ctx.fillStyle = background_color_input.value;
+                    ctx.fillRect(0, 0, board.width, board.height);
+                    ctx.drawImage(chara, 0, 0, canvasWidth, canvasHeight);
+                    var title1_size = board.width * 0.14 *(title1_size_input.value);
+                    var title1_x = board.width * 0.32 + parseInt(title1_position_x_input.value);
+                    var title1_y = board.height * 0.24 + parseInt(title1_position_y_input.value);
+                    ctx.font = title1_size + "px 'M PLUS 1 Light', sans-serif";
+                    ctx.fillStyle = "#fff";
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "bottom";
+                    ctx.fillText(title_1.value, title1_x, title1_y);
+
+                    if (title_2.value === "" || title_2.value === "エッセンス") {
+                        
+                    } else {
+                        var title2_size = board.width * 0.14 *(title2_size_input.value);
+                        var title2_x = board.width * 0.32 + parseInt(title2_position_x_input.value);
+                        var title2_y = board.height * 0.25 + parseInt(title2_position_y_input.value);
+                        ctx.font = title2_size + "px 'M PLUS 1 Light', sans-serif";
+                        ctx.fillStyle = "#fff";
+                        ctx.textAlign = "left";
+                        ctx.textBaseline = "top";
+                        ctx.fillText(title_2.value, title2_x, title2_y);
+                    }
+
+                    var version_size = board.width * 0.04 *(version_size_input.value);
+                    var version_x = board.width * 0.35 + parseInt(version_position_x_input.value);
+                    var version_y = board.height * 0.39 + parseInt(version_position_y_input.value);
+                    ctx.font = version_size + "px 'M PLUS 1 SemiBold', sans-serif";
+                    ctx.fillStyle = "#fff";
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "center";
+                    ctx.fillText(version.value, version_x, version_y);
+
+                    genre_size = board.width * 0.07 *(version_size_input.value);
+                    genre_x = board.width * 0.34 + parseInt(genre_position_x_input.value);
+                    genre_y = board.height * 0.46 + parseInt(genre_position_y_input.value);
+                    ctx.font = genre_size + "px 'M PLUS 1 ExtraBold', sans-serif";
+                    ctx.fillStyle = "#fff";
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "center";
+                    ctx.fillText(genre.value, genre_x, genre_y);
+
+                    subtitle_size = board.width * 0.02 *(subtitle_size_input.value);
+                    subtitle_x = board.width * 0.34 + parseInt(subtitle_position_x_input.value);
+                    subtitle_y = board.height * 0.48 + parseInt(subtitle_position_y_input.value);
+                    ctx.font = subtitle_size + "px 'M PLUS 1', sans-serif";
+                    ctx.fillStyle = "#fff";
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "top";
+                    author_x = subtitle_x + ctx.measureText(subtitle.value).width + board.width * 0.01 + parseInt(subtitle_position_x_input.value);
+                    ctx.fillText(subtitle.value, subtitle_x, subtitle_y);
+
+                    author_size = board.width * 0.04 *(author_size_input.value);
+                    author_y = board.height * 0.48 + parseInt(author_position_y_input.value);
+                    ctx.font = author_size + "px 'M PLUS 1 ExtraBold', sans-serif";
+                    ctx.fillStyle = "#fff";
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "top";
+                    subtext_x = author_x + ctx.measureText(author.value).width + board.width * 0.01 + parseInt(subtext_position_x_input.value);
+                    ctx.fillText(author.value, author_x, author_y);
+
+                    subtext_size = board.width * 0.02 *(subtext_size_input.value);
+                    subtext_y = board.height * 0.48 + parseInt(subtext_position_y_input.value);
+                    ctx.font = subtext_size + "px 'M PLUS 1', sans-serif";
+                    ctx.fillStyle = "#fff";
+                    ctx.textAlign = "left";
+                    ctx.textBaseline = "top";
+                    ctx.fillText("[" + subtext.value + "]", subtext_x, subtext_y);
+
+                    english_size = board.width * 0.03 *(english_size_input.value);
+                    english_x = board.width * 0.13 + parseInt(english_position_x_input.value);
+                    english_y = board.height * 0.43 + parseInt(english_position_y_input.value);
+                    ctx.font = english_size + "px 'Zen Old Mincho', serif";
+                    ctx.fillStyle = "#c9bc9c";
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "center";
+                    ctx.fillText(english.value, english_x, english_y);
+
+                    console.log("finished.");
+                };
+            }
+
+            window.onload = () => {
+                drawCanvas();
+            };
+            //入力された値の変更を反映
+            background_color_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title_1.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title_2.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title1_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title1_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title1_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title2_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title2_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            title2_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            version.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            version_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            version_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            version_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            genre.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            genre_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            genre_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            genre_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtitle.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtitle_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtitle_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtitle_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            author.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            author_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            author_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            author_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtext.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtext_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtext_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            subtext_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            english.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            english_size_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            english_position_x_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+
+            english_position_y_input.addEventListener('input', () => {
+                drawCanvas();
+            });
+            </script>
+        <p>
+            <center>
+                <button id="download">ダウンロードする！！</button>
+            </center>
+        </p>
+        <script>
+            document.getElementById("download").onclick = (event) => {
+                let canvas = document.getElementById("preview_canvas");
+                let link = document.createElement("a");
+                link.href = canvas.toDataURL("image/png");
+                link.download = "essence.png";
+                link.click();
+            }
+        </script>
+    </div>
+</body>
+</html>
